@@ -1,0 +1,132 @@
+<!--
+   Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="searchInventory">
+    <parameter name="appToken" description="Application token"/>
+    <parameter name="eventId" description="Event ID"/>
+    <parameter name="zoneIdList" description="Zone IDs for an event" />
+    <parameter name="sectionIdList" description="Section IDs for an event" />
+    <parameter name="quantity" description="Tickets quantity" />
+    <parameter name="priceMin" description="Minimum price for a ticket" />
+    <parameter name="priceMax" description="Maximum price for a ticket" />
+    <parameter name="listingAttributeList" description="Listing attribute list IDs" />
+    <parameter name="listingAttributeCategoryList" description="Listing attribute category list" />
+    <parameter name="deliveryTypeList" description="" />
+    <parameter name="sort" description="Sorting the listing information according to the listing property" />
+    <parameter name="start" description="Index of the first listing to be returned" />
+    <parameter name="rows" description="Number of listings to be released" />
+    <parameter name="zoneStats" description="Information about the listing zones needed or not" />
+    <parameter name="sectionStats" description="Information about section needed or not" />
+    <parameter name="pricingSummary" description="Information about pricing needed or not" />
+    <sequence>
+        <property name="uri.var.appToken" expression="$func:appToken"/>
+        <property name="uri.var.eventId" expression="$func:eventId"/>
+        <property name="zoneIdList" expression="$func:zoneIdList"/>
+        <property name="sectionIdList" expression="$func:sectionIdList"/>
+        <property name="quantity" expression="$func:quantity"/>
+        <property name="priceMin" expression="$func:priceMin"/>
+        <property name="priceMax" expression="$func:priceMax"/>
+        <property name="listingAttributeList" expression="$func:listingAttributeList"/>
+        <property name="listingAttributeCategoryList" expression="$func:listingAttributeCategoryList"/>
+        <property name="deliveryTypeList" expression="$func:deliveryTypeList"/>
+        <property name="sort" expression="$func:sort"/>
+        <property name="start" expression="$func:start"/>
+        <property name="rows" expression="$func:rows"/>
+        <property name="zoneStats" expression="$func:zoneStats"/>
+        <property name="sectionStats" expression="$func:sectionStats"/>
+        <property name="pricingSummary" expression="$func:pricingSummary"/>
+        <property name="uri.var.params" value=""/>
+        <script language="js">
+            <![CDATA[
+            var params = mc.getProperty('uri.var.params');
+            var zoneIdList = mc.getProperty('zoneIdList');
+            var sectionIdList = mc.getProperty('sectionIdList');
+            var quantity = mc.getProperty('quantity');
+            var priceMin = mc.getProperty('priceMin');
+            var priceMax = mc.getProperty('priceMax');
+            var listingAttributeList = mc.getProperty('listingAttributeList');
+            var listingAttributeCategoryList = mc.getProperty('listingAttributeCategoryList');
+            var deliveryTypeList = mc.getProperty('deliveryTypeList');
+            var sort = mc.getProperty('sort');
+            var start = mc.getProperty('start');
+            var rows = mc.getProperty('rows');
+            var zoneStats = mc.getProperty('zoneStats');
+            var sectionStats = mc.getProperty('sectionStats');
+            var pricingSummary = mc.getProperty('pricingSummary');
+            if (zoneIdList != null && zoneIdList != "") {
+                params += "&zoneidlist=" + zoneIdList;
+            }
+            if (sectionIdList != null && sectionIdList != "") {
+                params += "&sectionidlist=" + sectionIdList;
+            }
+            if (quantity != null && quantity != "") {
+                params += "&quantity=" + quantity;
+            }
+            if (priceMin != null && priceMin != "") {
+                params += "&pricemin=" + priceMin;
+            }
+            if (priceMax != null && priceMax != "") {
+                params += "&pricemax=" + priceMax;
+            }
+            if (listingAttributeList != null && listingAttributeList != "") {
+                params += "&listingattributelist=" + listingAttributeList;
+            }
+            if (listingAttributeCategoryList != null && listingAttributeCategoryList != "") {
+                params += "&listingattributecategorylist=" + listingAttributeCategoryList;
+            }
+            if (deliveryTypeList != null && deliveryTypeList != "") {
+                params += "&deliverytypelist=" + deliveryTypeList;
+            }
+            if (sort != null && sort != "") {
+                params += "&sort=" + sort;
+            }
+            if (start != null && start != "") {
+                params += "&start=" + start;
+            }
+            if (rows != null && rows != "") {
+                params += "&rows=" + rows;
+            }
+            if (zoneStats != null && zoneStats != "") {
+                params += "&zonestats=" + zoneStats;
+            }
+            if (sectionStats != null && sectionStats != "") {
+                params += "&sectionstats=" + sectionStats;
+            }
+            if (pricingSummary != null && pricingSummary != "") {
+                params += "&pricingsummary=" + pricingSummary;
+            }
+            mc.setProperty('uri.var.params', params);
+           ]]>
+        </script>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
+        <header name="Authorization"
+                expression="fn:concat('Bearer ', $ctx:uri.var.appToken )"
+                scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="get"
+                      uri-template="{uri.var.apiUrl}/search/inventory/v1?eventid={uri.var.eventId}{+uri.var.params}"/>
+            </endpoint>
+        </call>
+        <header name="X-EdgeConnect-MidMile-RTT" scope="transport" action="remove"/>
+        <header name="X-EdgeConnect-Origin-MEX-Latency" scope="transport" action="remove"/>
+        <header name="activityID" scope="transport" action="remove"/>
+        <header name="com-stubhub-dye" scope="transport" action="remove"/>
+        <header name="com-stubhub-dye-path" scope="transport" action="remove"/>
+    </sequence>
+</template>

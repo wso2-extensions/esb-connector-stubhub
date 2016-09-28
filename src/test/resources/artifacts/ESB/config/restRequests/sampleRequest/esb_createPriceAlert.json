@@ -1,0 +1,14 @@
+{
+  "apiUrl":"%s(apiUrl)",
+  "userId":"%s(userId)",
+  "eventId":"%s(eventId)",
+  "amount":"%s(amount)",
+  "currency":"%s(currency)",
+  "quantity":"%s(quantity)",
+  "username":"%s(username)",
+  "password":"%s(password)",
+  "scope":"%s(scope)",
+  "consumerKey":"%s(consumerKey)",
+  "consumerSecret":"%s(consumerSecret)"
+}
+

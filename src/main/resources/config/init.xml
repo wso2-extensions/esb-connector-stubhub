@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template name="init" onError="fault" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="apiUrl" description="API endpoint URL"/>
+    <parameter name="appToken" description="Application Token"/>
+    <parameter name="accessToken" description="Access Token"/>
+    <parameter name="username" description="StubHub Username"/>
+    <parameter name="password" description="StubHub Password"/>
+    <parameter name="scope" description="StubHub Scope"/>
+    <parameter name="consumerKey" description="Consumer Key"/>
+    <parameter name="consumerSecret" description="Consumer Secret"/>
+    <sequence>
+        <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
+        <property name="appToken" expression="$func:appToken"/>
+        <property name="accessToken" expression="$func:accessToken"/>
+        <property name="username" expression="$func:username"/>
+        <property name="password" expression="$func:password"/>
+        <property name="scope" expression="$func:scope"/>
+        <property name="consumerKey" expression="$func:consumerKey"/>
+        <property name="consumerSecret" expression="$func:consumerSecret"/>
+        <filter source="boolean($ctx:consumerKey) and boolean($ctx:consumerSecret)
+                and boolean($ctx:username) and boolean($ctx:password) and boolean($ctx:scope)"
+                regex="true">
+            <then>
+                <StubHub.getAccessToken/>
+                <property name="accessToken"
+                          expression="json-eval($.access_token)"/>
+            </then>
+        </filter>
+        <header name="Content-Type" value="application/json" scope="transport"/>
+        <header name="Accept" value="application/json" scope="transport"/>
+        <header name="Authorization" expression="fn:concat('Bearer ', $ctx:appToken )" scope="transport"/>
+    </sequence>
+</template>

@@ -1,0 +1,9 @@
+{
+  "accessToken":"%s(accessToken)",
+  "apiUrl":"%s(apiUrl)",
+  "userId":"%s(userId)",
+  "priceAlertRequestId":"invalid",
+  "eventId":"%s(eventId)",
+  "pauseInd":"%s(pauseInd)"
+}
+

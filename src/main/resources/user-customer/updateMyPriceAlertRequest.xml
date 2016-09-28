@@ -1,0 +1,73 @@
+<!--
+   Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="updateMyPriceAlertRequest">
+    <parameter name="userId" description="StubHub user id"/>
+    <parameter name="priceAlertRequestId" description="Price alert request ID"/>
+    <parameter name="eventId" description="Event ID"/>
+    <parameter name="amount" description="Ticket price"/>
+    <parameter name="currency" description="Currency code like USD, LKR "/>
+    <parameter name="quantity" description="Tickets quantity"/>
+    <parameter name="pauseInd" description="Pausing status of price alert request"/>
+    <sequence>
+        <property name="uri.var.userId" expression="$func:userId"/>
+        <property name="uri.var.priceAlertRequestId" expression="$func:priceAlertRequestId"/>
+        <property name="eventId" expression="$func:eventId"/>
+        <property name="amount" expression="$func:amount"/>
+        <property name="currency" expression="$func:currency"/>
+        <property name="quantity" expression="$func:quantity"/>
+        <property name="pauseInd" expression="$func:pauseInd"/>
+        <payloadFactory media-type="json">
+            <format>
+                {
+                    "priceAlert": {
+                        "eventId": "$1",
+                        "maxTicketPrice": {
+                            "amount": "$2",
+                            "currency": "$3"
+                        },
+                        "quantity": "$4",
+                        "pauseInd": "$5"
+                    }
+                }
+            </format>
+            <args>
+                <arg expression="$ctx:eventId"/>
+                <arg expression="$ctx:amount"/>
+                <arg expression="$ctx:currency"/>
+                <arg expression="$ctx:quantity"/>
+                <arg expression="$ctx:pauseInd"/>
+            </args>
+        </payloadFactory>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
+        <header name="Authorization"
+                expression="fn:concat('Bearer ', $ctx:accessToken )"
+                scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="put"
+                      uri-template="{uri.var.apiUrl}/user/customers/v1/{uri.var.userId}/pricealerts/{uri.var.priceAlertRequestId}"/>
+            </endpoint>
+        </call>
+        <header name="X-EdgeConnect-MidMile-RTT" scope="transport" action="remove"/>
+        <header name="X-EdgeConnect-Origin-MEX-Latency" scope="transport" action="remove"/>
+        <header name="activityID" scope="transport" action="remove"/>
+        <header name="com-stubhub-dye" scope="transport" action="remove"/>
+        <header name="com-stubhub-dye-path" scope="transport" action="remove"/>
+    </sequence>
+</template>

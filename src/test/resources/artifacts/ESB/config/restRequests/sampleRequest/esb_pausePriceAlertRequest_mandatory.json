@@ -1,0 +1,13 @@
+{
+  "accessToken":"%s(accessToken)",
+  "apiUrl":"%s(apiUrl)",
+  "userId":"%s(userId)",
+  "priceAlertRequestId":"%s(priceAlertRequestId)",
+  "eventId":"%s(eventId)",
+  "pauseInd":"%s(pauseInd)",
+  "username":"%s(username)",
+  "password":"%s(password)",
+  "scope":"%s(scope)",
+  "consumerKey":"%s(consumerKey)",
+  "consumerSecret":"%s(consumerSecret)"
+}
