@@ -29,6 +29,7 @@ import java.util.Map;
 
 /**
  * StubHub Connector Integration test
+ *
  * Advise to the tester. If you have the stubHub Bronze tire you can able to send only 10 request per minute
  * Please run this integration test partly.
  */
@@ -54,7 +55,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
      * Get information about a venue.
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getVenueDetails with mandatory params}.")
     public void testGetVenuesDetailsWithMandatoryParameters() throws Exception {
@@ -70,13 +71,13 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("id"), apiRestResponse.getBody().get("id"));
         Assert.assertEquals(esbRestResponse.getBody().get("name"), apiRestResponse.getBody().get("name"));
         Assert.assertEquals(esbRestResponse.getBody().get("description"), apiRestResponse.getBody().get("description"));
-    }*/
+    }
 
      /**
      * Negative case on getting information about a venue.
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getVenueDetails with negative params}.")
     public void testGetVenuesDetailsNegativeTestCase() throws Exception {
@@ -92,13 +93,13 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                         getJSONArray("error").getJSONObject(0).get("errorTypeId"),
                 apiRestResponse.getBody().getJSONObject("errors").
                         getJSONArray("error").getJSONObject(0).get("errorTypeId"));
-    }*/
+    }
 
      /**
      * Get information about a venue with optional parameters.
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getVenueDetails with optional params}")
     public void testGetVenuesDetailsWithOptionalParameters() throws Exception {
@@ -115,7 +116,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("id"), apiRestResponse.getBody().get("id"));
         Assert.assertEquals(esbRestResponse.getBody().get("name"), apiRestResponse.getBody().get("name"));
         Assert.assertEquals(esbRestResponse.getBody().get("description"), apiRestResponse.getBody().get("description"));
-    }*/
+    }
 
      /**
      * Create a notification for an event according to the set of criteria.
@@ -279,7 +280,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
      * Pause or Resume a price alert negative case.
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {Pause/Resume price alert with negative params}.")
     public void testPauseResumePriceAlertRequestsNegative() throws Exception {
@@ -297,7 +298,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                         getJSONArray("error").getJSONObject(0).get("errorTypeId"),
                 apiRestResponse.getBody().getJSONObject("priceAlert").getJSONObject("errors").
                         getJSONArray("error").getJSONObject(0).get("errorTypeId"));
-    }*/
+    }
 
     /**
      * update a particular price alert request.
@@ -352,7 +353,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
      * Search for ticket listings for an event
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {searchInventory with mandatory params}")
     public void testSearchInventoryWithMandatoryParameters() throws Exception {
@@ -371,13 +372,13 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                 .get("totalListings"));
         Assert.assertEquals(esbRestResponse.getBody().get("start"), apiRestResponse.getBody().get("start"));
         Assert.assertEquals(esbRestResponse.getBody().get("rows"), apiRestResponse.getBody().get("rows"));
-    }*/
+    }
 
      /**
      * Search for ticket listings for an event - Negative Case
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {searchInventory Negative Case}.")
     public void testSearchInventoryWithMandatoryParametersNegativeCase() throws Exception {
@@ -391,13 +392,13 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 400);
         Assert.assertEquals(esbRestResponse.getBody().get("code"), apiRestResponse.getBody().get("code"));
-    }*/
+    }
 
      /**
      * Search for ticket listings for an event with optional parameters
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {searchInventory with optional params}.")
     public void testSearchInventoryWithOptionalParameters() throws Exception {
@@ -426,13 +427,13 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                 .get("totalListings"));
         Assert.assertEquals(esbRestResponse.getBody().get("start"), apiRestResponse.getBody().get("start"));
         Assert.assertEquals(esbRestResponse.getBody().get("rows"), apiRestResponse.getBody().get("rows"));
-    }*/
+    }
 
      /**
      * Get information about an event
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getEventDetails with mandatory params}.")
     public void testGetEventDetailsWithMandatoryParameters() throws Exception {
@@ -455,13 +456,13 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                 , apiRestResponse.getBody().getJSONObject("venue").get("id"));
         Assert.assertEquals(esbRestResponse.getBody().getJSONObject("eventMeta").get("seoDescription")
                 , apiRestResponse.getBody().getJSONObject("eventMeta").get("seoDescription"));
-    }*/
+    }
 
      /**
      * Get information about an event with negative case
      *
      * @throws Exception
-     *//*
+     */
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getEventDetails with negative case}.")
     public void testGetEventDetailsWithMandatoryParametersNegativeCase() throws Exception {
@@ -477,5 +478,5 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                         .getJSONArray("error").getJSONObject(0).get("errorTypeId"),
                 apiRestResponse.getBody().getJSONObject("errors")
                         .getJSONArray("error").getJSONObject(0).get("errorTypeId"));
-    }*/
+    }
 }

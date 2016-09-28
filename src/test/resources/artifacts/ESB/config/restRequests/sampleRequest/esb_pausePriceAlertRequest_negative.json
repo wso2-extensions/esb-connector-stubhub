@@ -4,6 +4,11 @@
   "userId":"%s(userId)",
   "priceAlertRequestId":"invalid",
   "eventId":"%s(eventId)",
-  "pauseInd":"%s(pauseInd)"
+  "pauseInd":"%s(pauseInd)",
+  "username":"%s(username)",
+  "password":"%s(password)",
+  "scope":"%s(scope)",
+  "consumerKey":"%s(consumerKey)",
+  "consumerSecret":"%s(consumerSecret)"
 }
 
