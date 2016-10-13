@@ -1,0 +1,9 @@
+{
+  "apiUrl":"https://api.stubhub.com",
+  "userId":"36FF89BC3CAC15C9E0540010E0463606",
+  "username":"%s(username)",
+  "password":"%s(password)",
+  "scope":"%s(scope)",
+  "consumerKey":"%s(consumerKey)",
+  "consumerSecret":"%s(consumerSecret)"
+}

@@ -1,0 +1,46 @@
+<!--
+   Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+   http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="getVenueDetails">
+    <parameter name="venueId" description="This is the venue id need to get the information about a place/venue"/>
+    <parameter name="locale" description="This indicates that which are the strings are translated"/>
+    <sequence>
+        <property name="uri.var.venueId" expression="$func:venueId"/>
+        <property name="uri.var.locale" expression="$func:locale"/>
+        <property name="uri.var.params" value=""/>
+        <script language="js">
+            <![CDATA[
+            var params = mc.getProperty('uri.var.params');
+            var locale = mc.getProperty('uri.var.locale');
+            if (locale != null && locale != "") {
+                params += "?locale=" + locale;
+            }
+            mc.setProperty('uri.var.params', params);
+           ]]>
+        </script>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
+        <call>
+            <endpoint>
+                <http method="get"
+                      uri-template="{uri.var.apiUrl}/catalog/venues/v2/{uri.var.venueId}{+uri.var.params}"/>
+            </endpoint>
+        </call>
+        <header name="X-EdgeConnect-MidMile-RTT" scope="transport" action="remove"/>
+        <header name="X-EdgeConnect-Origin-MEX-Latency" scope="transport" action="remove"/>
+        <header name="activityID" scope="transport" action="remove"/>
+        <header name="com-stubhub-dye" scope="transport" action="remove"/>
+        <header name="com-stubhub-dye-path" scope="transport" action="remove"/>
+    </sequence>
+</template>

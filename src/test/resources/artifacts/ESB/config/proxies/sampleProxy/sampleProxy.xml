@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="StubHub"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+    <target>
+        <inSequence>
+            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="appToken" expression="json-eval($.appToken)"/>
+            <property name="accessToken" expression="json-eval($.accessToken)"/>
+            <property name="eventId" expression="json-eval($.eventId)"/>
+            <property name="venueId" expression="json-eval($.venueId)"/>
+            <property name="zoneIdList" expression="json-eval($.zoneIdList)"/>
+            <property name="sectionIdList" expression="json-eval($.sectionIdList)"/>
+            <property name="quantity" expression="json-eval($.quantity)"/>
+            <property name="priceMin" expression="json-eval($.priceMin)"/>
+            <property name="priceMax" expression="json-eval($.priceMax)"/>
+            <property name="listingAttributeList"
+                      expression="json-eval($.listingAttributeList)"/>
+            <property name="listingAttributeCategoryList"
+                      expression="json-eval($.listingAttributeCategoryList)"/>
+            <property name="deliveryTypeList" expression="json-eval($.deliveryTypeList)"/>
+            <property name="listingId" expression="json-eval($.listingId)"/>
+            <property name="priceAlertRequestId"
+                      expression="json-eval($.priceAlertRequestId)"/>
+            <property name="userId" expression="json-eval($.userId)"/>
+            <property name="includeFees" expression="json-eval($.includeFees)"/>
+            <property name="amount" expression="json-eval($.amount)"/>
+            <property name="currency" expression="json-eval($.currency)"/>
+            <property name="pauseInd" expression="json-eval($.pauseInd)"/>
+            <property name="zoneStats" expression="json-eval($.zoneStats)"/>
+            <property name="sectionStats" expression="json-eval($.sectionStats)"/>
+            <property name="pricingSummary" expression="json-eval($.pricingSummary)"/>
+            <property name="consumerKey" expression="json-eval($.consumerKey)"/>
+            <property name="consumerSecret" expression="json-eval($.consumerSecret)"/>
+            <property name="username" expression="json-eval($.username)"/>
+            <property name="password" expression="json-eval($.password)"/>
+            <property name="scope" expression="json-eval($.scope)"/>
+            <property name="transportAction" expression="$trp:Action"/>
+            <StubHub.init>
+                <apiUrl>{$ctx:apiUrl}</apiUrl>
+                <appToken>{$ctx:appToken}</appToken>
+                <consumerKey>{$ctx:consumerKey}</consumerKey>
+                <consumerSecret>{$ctx:consumerSecret}</consumerSecret>
+                <username>{$ctx:username}</username>
+                <password>{$ctx:password}</password>
+                <scope>{$ctx:scope}</scope>
+            </StubHub.init>
+            <switch source="get-property('transportAction')">
+                <case regex="urn:getEventDetails">
+                    <StubHub.getEventDetails>
+                        <eventId>{$ctx:eventId}</eventId>
+                    </StubHub.getEventDetails>
+                </case>
+                <case regex="urn:getAccessToken"/>
+                <case regex="urn:getVenueDetails">
+                    <StubHub.getVenueDetails>
+                        <venueId>{$ctx:venueId}</venueId>
+                    </StubHub.getVenueDetails>
+                </case>
+                <case regex="urn:searchInventory">
+                    <StubHub.searchInventory>
+                        <eventId>{$ctx:eventId}</eventId>
+                        <zoneIdList>{$ctx:zoneIdList}</zoneIdList>
+                        <sectionIdList>{$ctx:sectionIdList}</sectionIdList>
+                        <quantity>{$ctx:quantity}</quantity>
+                        <priceMin>{$ctx:priceMin}</priceMin>
+                        <priceMax>{$ctx:priceMax}</priceMax>
+                        <listingAttributeList>{$ctx:listingAttributeList}</listingAttributeList>
+                        <listingAttributeCategoryList>{$ctx:listingAttributeCategoryList}</listingAttributeCategoryList>
+                        <deliveryTypeList>{$ctx:deliveryTypeList}</deliveryTypeList>
+                        <zoneStats>{$ctx:zoneStats}</zoneStats>
+                        <sectionStats>{$ctx:sectionStats}</sectionStats>
+                        <pricingSummary>{$ctx:pricingSummary}</pricingSummary>
+                    </StubHub.searchInventory>
+                </case>
+                <case regex="urn:getPriceAlertRequests">
+                    <StubHub.getPriceAlertRequests>
+                        <accessToken>{$ctx:accessToken}</accessToken>
+                        <userId>{$ctx:userId}</userId>
+                        <eventId>{$ctx:eventId}</eventId>
+                    </StubHub.getPriceAlertRequests>
+                </case>
+                <case regex="urn:getPriceAlertRequest">
+                    <StubHub.getPriceAlertRequest>
+                        <accessToken>{$ctx:accessToken}</accessToken>
+                        <userId>{$ctx:userId}</userId>
+                        <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
+                    </StubHub.getPriceAlertRequest>
+                </case>
+                <case regex="urn:deletePriceAlertRequest">
+                    <StubHub.deletePriceAlertRequest>
+                        <accessToken>{$ctx:accessToken}</accessToken>
+                        <userId>{$ctx:userId}</userId>
+                        <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
+                    </StubHub.deletePriceAlertRequest>
+                </case>
+                <case regex="urn:updateMyPriceAlertRequest">
+                    <StubHub.updateMyPriceAlertRequest>
+                        <accessToken>{$ctx:accessToken}</accessToken>
+                        <userId>{$ctx:userId}</userId>
+                        <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
+                        <eventId>{$ctx:eventId}</eventId>
+                        <amount>{$ctx:amount}</amount>
+                        <currency>{$ctx:currency}</currency>
+                        <quantity>{$ctx:quantity}</quantity>
+                        <pauseInd>{$ctx:pauseInd}</pauseInd>
+                    </StubHub.updateMyPriceAlertRequest>
+                </case>
+                <case regex="urn:pauseMyPriceAlertRequest">
+                    <StubHub.pauseMyPriceAlertRequest>
+                        <accessToken>{$ctx:accessToken}</accessToken>
+                        <userId>{$ctx:userId}</userId>
+                        <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
+                        <pauseInd>{$ctx:pauseInd}</pauseInd>
+                    </StubHub.pauseMyPriceAlertRequest>
+                </case>
+                <case regex="urn:createPriceAlert">
+                    <StubHub.createPriceAlert>
+                        <accessToken>{$ctx:accessToken}</accessToken>
+                        <userId>{$ctx:userId}</userId>
+                        <eventId>{$ctx:eventId}</eventId>
+                        <amount>{$ctx:amount}</amount>
+                        <currency>{$ctx:currency}</currency>
+                        <quantity>{$ctx:quantity}</quantity>
+                    </StubHub.createPriceAlert>
+                </case>
+            </switch>
+            <respond/>
+        </inSequence>
+        <outSequence>
+            <log/>
+            <send/>
+        </outSequence>
+    </target>
+    <description/>
+</proxy>

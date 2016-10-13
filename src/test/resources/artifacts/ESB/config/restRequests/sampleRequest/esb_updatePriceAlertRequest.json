@@ -1,0 +1,15 @@
+{
+  "apiUrl":"%s(apiUrl)",
+  "userId":"%s(userId)",
+  "priceAlertRequestId":"%s(priceAlertRequestId)",
+  "eventId":"%s(eventId)",
+  "amount":"%s(updateAmount)",
+  "currency":"%s(updateCurrency)",
+  "quantity":"%s(updateQuantity)",
+  "pauseInd":"%s(updatePauseInd)",
+  "username":"%s(username)",
+  "password":"%s(password)",
+  "scope":"%s(scope)",
+  "consumerKey":"%s(consumerKey)",
+  "consumerSecret":"%s(consumerSecret)"
+}
