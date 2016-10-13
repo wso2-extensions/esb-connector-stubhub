@@ -28,7 +28,7 @@
     <properties>
         <axis2.osgi.version.range>1.7.1</axis2.osgi.version.range>
         <axiom.osgi.version.range>1.2.5</axiom.osgi.version.range>
-        <connector.name>StubHub</connector.name>
+        <connector.name>stubHub</connector.name>
         <test.framework.version>4.2.0</test.framework.version>
         <esb.version>5.0.0</esb.version>
         <carbon.kernel.version>4.4.1</carbon.kernel.version>

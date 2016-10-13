@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="StubHub"
+       name="stubHub"
        transports="https,http"
        statistics="disable"
        trace="disable"
@@ -39,7 +39,7 @@
             <property name="password" expression="json-eval($.password)"/>
             <property name="scope" expression="json-eval($.scope)"/>
             <property name="transportAction" expression="$trp:Action"/>
-            <StubHub.init>
+            <stubHub.init>
                 <apiUrl>{$ctx:apiUrl}</apiUrl>
                 <appToken>{$ctx:appToken}</appToken>
                 <consumerKey>{$ctx:consumerKey}</consumerKey>
@@ -47,21 +47,21 @@
                 <username>{$ctx:username}</username>
                 <password>{$ctx:password}</password>
                 <scope>{$ctx:scope}</scope>
-            </StubHub.init>
+            </stubHub.init>
             <switch source="get-property('transportAction')">
                 <case regex="urn:getEventDetails">
-                    <StubHub.getEventDetails>
+                    <stubHub.getEventDetails>
                         <eventId>{$ctx:eventId}</eventId>
-                    </StubHub.getEventDetails>
+                    </stubHub.getEventDetails>
                 </case>
                 <case regex="urn:getAccessToken"/>
                 <case regex="urn:getVenueDetails">
-                    <StubHub.getVenueDetails>
+                    <stubHub.getVenueDetails>
                         <venueId>{$ctx:venueId}</venueId>
-                    </StubHub.getVenueDetails>
+                    </stubHub.getVenueDetails>
                 </case>
                 <case regex="urn:searchInventory">
-                    <StubHub.searchInventory>
+                    <stubHub.searchInventory>
                         <eventId>{$ctx:eventId}</eventId>
                         <zoneIdList>{$ctx:zoneIdList}</zoneIdList>
                         <sectionIdList>{$ctx:sectionIdList}</sectionIdList>
@@ -74,31 +74,31 @@
                         <zoneStats>{$ctx:zoneStats}</zoneStats>
                         <sectionStats>{$ctx:sectionStats}</sectionStats>
                         <pricingSummary>{$ctx:pricingSummary}</pricingSummary>
-                    </StubHub.searchInventory>
+                    </stubHub.searchInventory>
                 </case>
                 <case regex="urn:getPriceAlertRequests">
-                    <StubHub.getPriceAlertRequests>
+                    <stubHub.getPriceAlertRequests>
                         <accessToken>{$ctx:accessToken}</accessToken>
                         <userId>{$ctx:userId}</userId>
                         <eventId>{$ctx:eventId}</eventId>
-                    </StubHub.getPriceAlertRequests>
+                    </stubHub.getPriceAlertRequests>
                 </case>
                 <case regex="urn:getPriceAlertRequest">
-                    <StubHub.getPriceAlertRequest>
+                    <stubHub.getPriceAlertRequest>
                         <accessToken>{$ctx:accessToken}</accessToken>
                         <userId>{$ctx:userId}</userId>
                         <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
-                    </StubHub.getPriceAlertRequest>
+                    </stubHub.getPriceAlertRequest>
                 </case>
                 <case regex="urn:deletePriceAlertRequest">
-                    <StubHub.deletePriceAlertRequest>
+                    <stubHub.deletePriceAlertRequest>
                         <accessToken>{$ctx:accessToken}</accessToken>
                         <userId>{$ctx:userId}</userId>
                         <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
-                    </StubHub.deletePriceAlertRequest>
+                    </stubHub.deletePriceAlertRequest>
                 </case>
                 <case regex="urn:updateMyPriceAlertRequest">
-                    <StubHub.updateMyPriceAlertRequest>
+                    <stubHub.updateMyPriceAlertRequest>
                         <accessToken>{$ctx:accessToken}</accessToken>
                         <userId>{$ctx:userId}</userId>
                         <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
@@ -107,25 +107,25 @@
                         <currency>{$ctx:currency}</currency>
                         <quantity>{$ctx:quantity}</quantity>
                         <pauseInd>{$ctx:pauseInd}</pauseInd>
-                    </StubHub.updateMyPriceAlertRequest>
+                    </stubHub.updateMyPriceAlertRequest>
                 </case>
                 <case regex="urn:pauseMyPriceAlertRequest">
-                    <StubHub.pauseMyPriceAlertRequest>
+                    <stubHub.pauseMyPriceAlertRequest>
                         <accessToken>{$ctx:accessToken}</accessToken>
                         <userId>{$ctx:userId}</userId>
                         <priceAlertRequestId>{$ctx:priceAlertRequestId}</priceAlertRequestId>
                         <pauseInd>{$ctx:pauseInd}</pauseInd>
-                    </StubHub.pauseMyPriceAlertRequest>
+                    </stubHub.pauseMyPriceAlertRequest>
                 </case>
                 <case regex="urn:createPriceAlert">
-                    <StubHub.createPriceAlert>
+                    <stubHub.createPriceAlert>
                         <accessToken>{$ctx:accessToken}</accessToken>
                         <userId>{$ctx:userId}</userId>
                         <eventId>{$ctx:eventId}</eventId>
                         <amount>{$ctx:amount}</amount>
                         <currency>{$ctx:currency}</currency>
                         <quantity>{$ctx:quantity}</quantity>
-                    </StubHub.createPriceAlert>
+                    </stubHub.createPriceAlert>
                 </case>
             </switch>
             <respond/>
