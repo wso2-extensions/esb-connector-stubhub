@@ -38,7 +38,7 @@
                 and boolean($ctx:username) and boolean($ctx:password) and boolean($ctx:scope)"
                 regex="true">
             <then>
-                <StubHub.getAccessToken/>
+                <stubHub.getAccessToken/>
                 <property name="accessToken"
                           expression="json-eval($.access_token)"/>
             </then>

@@ -17,7 +17,7 @@
    under the License.
 -->
 <connector>
-    <component name="StubHub" package="org.wso2.carbon.connector">
+    <component name="stubHub" package="org.wso2.carbon.connector">
         <dependency component="config"/>
         <dependency component="event"/>
         <dependency component="venue"/>
