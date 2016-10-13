@@ -18,20 +18,20 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="searchInventory">
     <parameter name="appToken" description="Application token"/>
     <parameter name="eventId" description="Event ID"/>
-    <parameter name="zoneIdList" description="Zone IDs for an event" />
-    <parameter name="sectionIdList" description="Section IDs for an event" />
-    <parameter name="quantity" description="Tickets quantity" />
-    <parameter name="priceMin" description="Minimum price for a ticket" />
-    <parameter name="priceMax" description="Maximum price for a ticket" />
-    <parameter name="listingAttributeList" description="Listing attribute list IDs" />
-    <parameter name="listingAttributeCategoryList" description="Listing attribute category list" />
-    <parameter name="deliveryTypeList" description="" />
-    <parameter name="sort" description="Sorting the listing information according to the listing property" />
-    <parameter name="start" description="Index of the first listing to be returned" />
-    <parameter name="rows" description="Number of listings to be released" />
-    <parameter name="zoneStats" description="Information about the listing zones needed or not" />
-    <parameter name="sectionStats" description="Information about section needed or not" />
-    <parameter name="pricingSummary" description="Information about pricing needed or not" />
+    <parameter name="zoneIdList" description="Zone IDs for an event"/>
+    <parameter name="sectionIdList" description="Section IDs for an event"/>
+    <parameter name="quantity" description="Tickets quantity"/>
+    <parameter name="priceMin" description="Minimum price for a ticket"/>
+    <parameter name="priceMax" description="Maximum price for a ticket"/>
+    <parameter name="listingAttributeList" description="Listing attribute list IDs"/>
+    <parameter name="listingAttributeCategoryList" description="Listing attribute category list"/>
+    <parameter name="deliveryTypeList" description=""/>
+    <parameter name="sort" description="Sorting the listing information according to the listing property"/>
+    <parameter name="start" description="Index of the first listing to be returned"/>
+    <parameter name="rows" description="Number of listings to be released"/>
+    <parameter name="zoneStats" description="Information about the listing zones needed or not"/>
+    <parameter name="sectionStats" description="Information about section needed or not"/>
+    <parameter name="pricingSummary" description="Information about pricing needed or not"/>
     <sequence>
         <property name="uri.var.appToken" expression="$func:appToken"/>
         <property name="uri.var.eventId" expression="$func:eventId"/>

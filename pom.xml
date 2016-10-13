@@ -340,6 +340,12 @@
             </releases>
         </repository>
     </repositories>
+    <scm>
+        <connection>scm:git:https://github.com/wso2-extensions/esb-connector-stubhub.git</connection>
+        <url>https://github.com/wso2-extensions/esb-connector-stubhub.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-stubhub</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>

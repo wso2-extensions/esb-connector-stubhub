@@ -16,9 +16,9 @@
    specific language governing permissions and limitations
    under the License.
 -->
-<component name="inventory" type="synapse/template" >
+<component name="inventory" type="synapse/template">
     <subComponents>
-        <component name="searchInventory" >
+        <component name="searchInventory">
             <file>searchInventory.xml</file>
             <description>Method for search ticket listings for an event</description>
         </component>

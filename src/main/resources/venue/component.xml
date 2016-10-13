@@ -16,9 +16,9 @@
    specific language governing permissions and limitations
    under the License.
 -->
-<component name="venue" type="synapse/template" >
+<component name="venue" type="synapse/template">
     <subComponents>
-        <component name="getVenueDetails" >
+        <component name="getVenueDetails">
             <file>getVenueDetails.xml</file>
             <description>Method for Getting Details about venues</description>
         </component>

@@ -34,15 +34,15 @@
         <payloadFactory media-type="json">
             <format>
                 {
-                    "priceAlert": {
-                        "eventId": "$1",
-                        "maxTicketPrice": {
-                            "amount": "$2",
-                            "currency": "$3"
-                        },
-                        "quantity": "$4",
-                        "pauseInd": "$5"
-                    }
+                "priceAlert": {
+                "eventId": "$1",
+                "maxTicketPrice": {
+                "amount": "$2",
+                "currency": "$3"
+                },
+                "quantity": "$4",
+                "pauseInd": "$5"
+                }
                 }
             </format>
             <args>

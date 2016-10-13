@@ -16,11 +16,11 @@
    specific language governing permissions and limitations
    under the License.
 -->
-<component name="event" type="synapse/template" >
-    <subComponents> 
-		<component name="getEventDetails" >
-	    		<file>getEventDetails.xml</file>
-	    		<description>Method for getting detail about an event</description>
-		</component>			
-    </subComponents>    
+<component name="event" type="synapse/template">
+    <subComponents>
+        <component name="getEventDetails">
+            <file>getEventDetails.xml</file>
+            <description>Method for getting detail about an event</description>
+        </component>
+    </subComponents>
 </component>

@@ -17,7 +17,7 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getPriceAlertRequest">
     <parameter name="userId" description="StubHub user ID"/>
-    <parameter name="priceAlertRequestId" description="Price Alert Request ID" />
+    <parameter name="priceAlertRequestId" description="Price Alert Request ID"/>
     <sequence>
         <property name="uri.var.userId" expression="$func:userId"/>
         <property name="uri.var.priceAlertRequestId" expression="$func:priceAlertRequestId"/>
