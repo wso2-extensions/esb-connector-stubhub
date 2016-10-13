@@ -44,7 +44,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
 
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
-        init("stubHub-connector-1.0.0");
+        init("stubHub-connector-1.0.1-SNAPSHOT");
         esbRequestHeadersMap.put("Content-Type", "application/json");
         esbRequestHeadersMap.put("Accept", "application/json");
         apiRequestHeadersMap.put("Accept-Charset", "UTF-8");
