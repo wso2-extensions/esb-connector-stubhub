@@ -114,9 +114,6 @@
         </script>
         <property name="messageType" value="application/json" scope="axis2"/>
         <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
-        <header name="Authorization"
-                expression="fn:concat('Bearer ', $ctx:uri.var.appToken )"
-                scope="transport"/>
         <call>
             <endpoint>
                 <http method="get"
