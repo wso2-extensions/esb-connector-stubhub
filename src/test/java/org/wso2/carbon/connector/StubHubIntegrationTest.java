@@ -29,7 +29,7 @@ import java.util.Map;
 
 /**
  * StubHub Connector Integration test
- *
+ * <p/>
  * Advise to the tester. If you have the stubHub Bronze tire you can able to send only 10 request per minute
  * Please run this integration test partly.
  */
@@ -41,6 +41,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
      */
     private Map<String, String> esbRequestHeadersMap = new HashMap<String, String>();
     private Map<String, String> apiRequestHeadersMap = new HashMap<String, String>();
+
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
         init("StubHub-connector-1.0.0");
@@ -73,7 +74,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("description"), apiRestResponse.getBody().get("description"));
     }
 
-     /**
+    /**
      * Negative case on getting information about a venue.
      *
      * @throws Exception
@@ -95,7 +96,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                         getJSONArray("error").getJSONObject(0).get("errorTypeId"));
     }
 
-     /**
+    /**
      * Get information about a venue with optional parameters.
      *
      * @throws Exception
@@ -118,7 +119,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("description"), apiRestResponse.getBody().get("description"));
     }
 
-     /**
+    /**
      * Create a notification for an event according to the set of criteria.
      *
      * @throws Exception
@@ -176,7 +177,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
      *
      * @throws Exception
      */
-    @Test(dependsOnMethods = {"testCreatePriceAlert"},enabled = true, groups = {"wso2.esb"},
+    @Test(dependsOnMethods = {"testCreatePriceAlert"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {GetPriceAlertRequests with mandatory params}.")
     public void testGetPriceAlertRequests() throws Exception {
         esbRequestHeadersMap.put("Action", "urn:getPriceAlertRequests");
@@ -374,7 +375,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("rows"), apiRestResponse.getBody().get("rows"));
     }
 
-     /**
+    /**
      * Search for ticket listings for an event - Negative Case
      *
      * @throws Exception
@@ -394,7 +395,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("code"), apiRestResponse.getBody().get("code"));
     }
 
-     /**
+    /**
      * Search for ticket listings for an event with optional parameters
      *
      * @throws Exception
@@ -429,7 +430,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getBody().get("rows"), apiRestResponse.getBody().get("rows"));
     }
 
-     /**
+    /**
      * Get information about an event
      *
      * @throws Exception
@@ -458,7 +459,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                 , apiRestResponse.getBody().getJSONObject("eventMeta").get("seoDescription"));
     }
 
-     /**
+    /**
      * Get information about an event with negative case
      *
      * @throws Exception

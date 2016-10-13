@@ -1,5 +1,5 @@
 {
-  "appToken":"%s(appToken)",
-  "apiUrl":"%s(apiUrl)",
-  "eventId":"invalid"
+  "appToken": "%s(appToken)",
+  "apiUrl": "%s(apiUrl)",
+  "eventId": "invalid"
 }

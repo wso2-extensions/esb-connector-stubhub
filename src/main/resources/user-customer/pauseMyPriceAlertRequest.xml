@@ -26,9 +26,9 @@
         <payloadFactory media-type="json">
             <format>
                 {
-                    "priceAlert": {
-                        "pauseInd": "$1"
-                    }
+                "priceAlert": {
+                "pauseInd": "$1"
+                }
                 }
             </format>
             <args>

@@ -16,32 +16,32 @@
    specific language governing permissions and limitations
    under the License.
 -->
-<component name="user-customer" type="synapse/template" >
-    <subComponents> 
-		<component name="createPriceAlert" >
-	    		<file>createPriceAlert.xml</file>
-	    		<description>Method for creating price alerts</description>
-		</component>
-		<component name="getPriceAlertRequest" >
-	    		<file>getPriceAlertRequest.xml</file>
-	    		<description>Method for getting details about a price alert request</description>
-		</component>
-		<component name="getPriceAlertRequests" >
-	    		<file>getPriceAlertRequests.xml</file>
-	    		<description>Method for getting detail about all price alert requests </description>
-		</component>
-		<component name="updateMyPriceAlertRequest" >
-	    		<file>updateMyPriceAlertRequest.xml</file>
-	    		<description>Method for updating a price alert request</description>
-		</component>
-		<component name="deletePriceAlertRequest" >
-	    		<file>deletePriceAlertRequest.xml</file>
-	    		<description>Method for delete a price alert request</description>
-		</component>
-		<component name="pauseMyPriceAlertRequest" >
-	    		<file>pauseMyPriceAlertRequest.xml</file>
-	    		<description>Method for pause or resume a price alert request</description>
-		</component>
+<component name="user-customer" type="synapse/template">
+    <subComponents>
+        <component name="createPriceAlert">
+            <file>createPriceAlert.xml</file>
+            <description>Method for creating price alerts</description>
+        </component>
+        <component name="getPriceAlertRequest">
+            <file>getPriceAlertRequest.xml</file>
+            <description>Method for getting details about a price alert request</description>
+        </component>
+        <component name="getPriceAlertRequests">
+            <file>getPriceAlertRequests.xml</file>
+            <description>Method for getting detail about all price alert requests</description>
+        </component>
+        <component name="updateMyPriceAlertRequest">
+            <file>updateMyPriceAlertRequest.xml</file>
+            <description>Method for updating a price alert request</description>
+        </component>
+        <component name="deletePriceAlertRequest">
+            <file>deletePriceAlertRequest.xml</file>
+            <description>Method for delete a price alert request</description>
+        </component>
+        <component name="pauseMyPriceAlertRequest">
+            <file>pauseMyPriceAlertRequest.xml</file>
+            <description>Method for pause or resume a price alert request</description>
+        </component>
 
     </subComponents>
 </component>

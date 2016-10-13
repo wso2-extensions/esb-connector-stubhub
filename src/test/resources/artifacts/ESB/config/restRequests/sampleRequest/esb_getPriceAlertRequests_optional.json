@@ -1,10 +1,10 @@
 {
-  "apiUrl":"%s(apiUrl)",
-  "userId":"%s(userId)",
-  "eventId":"%s(eventId)",
-  "username":"%s(username)",
-  "password":"%s(password)",
-  "scope":"%s(scope)",
-  "consumerKey":"%s(consumerKey)",
-  "consumerSecret":"%s(consumerSecret)"
+  "apiUrl": "%s(apiUrl)",
+  "userId": "%s(userId)",
+  "eventId": "%s(eventId)",
+  "username": "%s(username)",
+  "password": "%s(password)",
+  "scope": "%s(scope)",
+  "consumerKey": "%s(consumerKey)",
+  "consumerSecret": "%s(consumerSecret)"
 }

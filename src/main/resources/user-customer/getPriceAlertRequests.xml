@@ -17,7 +17,7 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getPriceAlertRequests">
     <parameter name="userId" description="StubHub user ID"/>
-    <parameter name="eventId" description="Event ID for filter a price alert - Optional" />
+    <parameter name="eventId" description="Event ID for filter a price alert - Optional"/>
     <sequence>
         <property name="uri.var.userId" expression="$func:userId"/>
         <property name="uri.var.eventId" expression="$func:eventId"/>
@@ -41,7 +41,7 @@
         <call>
             <endpoint>
                 <http method="get"
-                uri-template="{uri.var.apiUrl}/user/customers/v1/{uri.var.userId}/pricealerts{+uri.var.params}"/>
+                      uri-template="{uri.var.apiUrl}/user/customers/v1/{uri.var.userId}/pricealerts{+uri.var.params}"/>
             </endpoint>
         </call>
         <header name="X-EdgeConnect-MidMile-RTT" scope="transport" action="remove"/>

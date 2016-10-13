@@ -1,5 +1,5 @@
 {
-  "appToken":"%s(appToken)",
-  "apiUrl":"%s(apiUrl)",
-  "eventId":"%s(eventId)"
+  "appToken": "%s(appToken)",
+  "apiUrl": "%s(apiUrl)",
+  "eventId": "%s(eventId)"
 }

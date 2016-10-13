@@ -1,5 +1,5 @@
 {
-  "appToken":"%s(appToken)",
-  "apiUrl":"%s(apiUrl)",
-  "venueId":"invalid"
+  "appToken": "%s(appToken)",
+  "apiUrl": "%s(apiUrl)",
+  "venueId": "invalid"
 }

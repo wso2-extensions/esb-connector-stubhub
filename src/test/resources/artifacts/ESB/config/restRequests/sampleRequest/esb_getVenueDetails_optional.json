@@ -1,6 +1,6 @@
 {
-  "appToken":"%s(appToken)",
-  "apiUrl":"%s(apiUrl)",
-  "venueId":"%s(venueId)",
-  "locale":"%s(locale)"
+  "appToken": "%s(appToken)",
+  "apiUrl": "%s(apiUrl)",
+  "venueId": "%s(venueId)",
+  "locale": "%s(locale)"
 }
