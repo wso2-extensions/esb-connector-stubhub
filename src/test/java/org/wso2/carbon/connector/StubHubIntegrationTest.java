@@ -41,6 +41,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
      */
     private Map<String, String> esbRequestHeadersMap = new HashMap<String, String>();
     private Map<String, String> apiRequestHeadersMap = new HashMap<String, String>();
+    private static final int sleepingTime=5000;
 
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
@@ -60,6 +61,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getVenueDetails with mandatory params}.")
     public void testGetVenuesDetailsWithMandatoryParameters() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getVenueDetails");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -82,6 +84,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getVenueDetails with negative params}.")
     public void testGetVenuesDetailsNegativeTestCase() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getVenueDetails");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -104,6 +107,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getVenueDetails with optional params}")
     public void testGetVenuesDetailsWithOptionalParameters() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getVenueDetails");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -127,6 +131,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {createPriceAlert with mandatory params}.")
     public void testCreatePriceAlert() throws Exception {
+        Thread.sleep(sleepingTime);
         final String accessToken = connectorProperties.getProperty("accessToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + accessToken);
         esbRequestHeadersMap.put("Action", "urn:createPriceAlert");
@@ -147,6 +152,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(dependsOnMethods = {"testCreatePriceAlert"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {GetPriceAlertRequest with mandatory params}.")
     public void testGetPriceAlertRequest() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getPriceAlertRequest");
         final String accessToken = connectorProperties.getProperty("accessToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + accessToken);
@@ -180,6 +186,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(dependsOnMethods = {"testCreatePriceAlert"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {GetPriceAlertRequests with mandatory params}.")
     public void testGetPriceAlertRequests() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getPriceAlertRequests");
         final String accessToken = connectorProperties.getProperty("accessToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + accessToken);
@@ -205,6 +212,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(dependsOnMethods = {"testCreatePriceAlert"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {GetPriceAlertRequest with optional params}.")
     public void testGetPriceAlertRequestsOptional() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getPriceAlertRequests");
         final String accessToken = connectorProperties.getProperty("accessToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + accessToken);
@@ -230,6 +238,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {GetPriceAlertRequest with negative params}.")
     public void testGetPriceAlertRequestsNegative() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getPriceAlertRequests");
         final String accessToken = connectorProperties.getProperty("accessToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + accessToken);
@@ -254,6 +263,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(dependsOnMethods = {"testCreatePriceAlert"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {Pause/Resume price alert with mandatory params}.")
     public void testPauseResumePriceAlertRequests() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:pauseMyPriceAlertRequest");
         RestResponse<JSONObject> esbRestResponseGetPriceAlerts =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
@@ -285,6 +295,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {Pause/Resume price alert with negative params}.")
     public void testPauseResumePriceAlertRequestsNegative() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:pauseMyPriceAlertRequest");
         RestResponse<JSONObject> esbRestResponse =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap, "esb_pausePriceAlertRequest_negative.json");
@@ -309,6 +320,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(dependsOnMethods = {"testPauseResumePriceAlertRequests"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {Update a particular price alert with mandatory params}.")
     public void testUpdatePriceAlertRequests() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:updateMyPriceAlertRequest");
         RestResponse<JSONObject> esbRestResponse =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap, "esb_updatePriceAlertRequest.json");
@@ -334,6 +346,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(dependsOnMethods = {"testUpdatePriceAlertRequests"}, enabled = true, groups = {"wso2.esb"},
             description = "StubHub {Delete a price alert with mandatory params}.")
     public void testDeletePriceAlert() throws Exception {
+        Thread.sleep(sleepingTime);
         final String accessToken = connectorProperties.getProperty("accessToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + accessToken);
         esbRequestHeadersMap.put("Action", "urn:deletePriceAlertRequest");
@@ -358,6 +371,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {searchInventory with mandatory params}")
     public void testSearchInventoryWithMandatoryParameters() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:searchInventory");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -383,6 +397,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {searchInventory Negative Case}.")
     public void testSearchInventoryWithMandatoryParametersNegativeCase() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:searchInventory");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -403,6 +418,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {searchInventory with optional params}.")
     public void testSearchInventoryWithOptionalParameters() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:searchInventory");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -438,6 +454,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getEventDetails with mandatory params}.")
     public void testGetEventDetailsWithMandatoryParameters() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getEventDetails");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -455,8 +472,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
                 , apiRestResponse.getBody().get("eventDateUTC"));
         Assert.assertEquals(esbRestResponse.getBody().getJSONObject("venue").get("id")
                 , apiRestResponse.getBody().getJSONObject("venue").get("id"));
-        Assert.assertEquals(esbRestResponse.getBody().getJSONObject("eventMeta").get("seoDescription")
-                , apiRestResponse.getBody().getJSONObject("eventMeta").get("seoDescription"));
+
     }
 
     /**
@@ -467,6 +483,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
     @Test(enabled = true, groups = {"wso2.esb"},
             description = "StubHub {getEventDetails with negative case}.")
     public void testGetEventDetailsWithMandatoryParametersNegativeCase() throws Exception {
+        Thread.sleep(sleepingTime);
         esbRequestHeadersMap.put("Action", "urn:getEventDetails");
         final String appToken = connectorProperties.getProperty("appToken");
         apiRequestHeadersMap.put("Authorization", "Bearer " + appToken);
@@ -474,7 +491,7 @@ public class StubHubIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> esbRestResponse =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap, "esb_getEventDetails_negative.json");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
-        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 400);
+        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), apiRestResponse.getHttpStatusCode());
         Assert.assertEquals(esbRestResponse.getBody().getJSONObject("errors")
                         .getJSONArray("error").getJSONObject(0).get("errorTypeId"),
                 apiRestResponse.getBody().getJSONObject("errors")
