@@ -1,0 +1,21 @@
+{
+    "name": "StubHub",
+    "owner": "WSO2",
+    "category": "Other",
+    "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/Stub+Hub+Connector",
+    "description": "The Stub Hub connector allows you to access the Stub Hub REST API through WSO2 ESB.StubHub is an online marketplace owned by eBay, which provides services for buyers and sellers of tickets for sports, concerts, theater and other live entertainment events.",
+    "status": "Unsupported",
+    "labels": [
+        "connector"
+    ],
+    "releases": [
+        {
+            "tagName": "v1.0.0",
+            "products": [
+                "ESB 5.0.0",
+                "ESB 4.9.0"
+            ],
+            "isHidden": false
+        }
+    ]
+}
